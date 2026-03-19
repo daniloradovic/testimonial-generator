@@ -120,21 +120,21 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 7 — Deploy Backend to Railway
 
-- [ ] Push `backend/` to GitHub
-- [ ] Go to railway.app — create new project from GitHub repo
-- [ ] Set environment variable: `ANTHROPIC_API_KEY`
-- [ ] Deploy and copy the public URL
-- [ ] Test live endpoint with curl
+- [x] Push `backend/` to GitHub
+- [x] Go to railway.app — create new project from GitHub repo
+- [x] Set environment variable: `ANTHROPIC_API_KEY`
+- [x] Deploy and copy the public URL
+- [x] Test live endpoint with curl
 
 ---
 
 ## Phase 8 — Deploy Frontend to Vercel
 
-- [ ] Push `frontend/` to GitHub
-- [ ] Go to vercel.com — import repo
-- [ ] Set environment variable: `VITE_API_URL=https://your-railway-url`
-- [ ] Deploy and get public URL
-- [ ] Test full flow on live site
+- [x] Push `frontend/` to GitHub
+- [x] Go to vercel.com — import repo
+- [x] Set environment variable: `VITE_API_URL=https://your-railway-url`
+- [x] Deploy and get public URL
+- [x] Test full flow on live site
 - [ ] Check on mobile
 
 ---
