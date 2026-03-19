@@ -1,0 +1,217 @@
+# TASKS: Testimonial Request Generator
+
+Reference: PLAN_testimonial_request_generator.md
+
+---
+
+## Phase 1 — Project Setup
+
+- [ ] Create project folder: `mkdir testimonial-generator && cd testimonial-generator`
+- [ ] Create backend folder: `mkdir backend && cd backend`
+- [ ] Init Node project: `npm init -y`
+- [ ] Install dependencies: `npm install express cors dotenv`
+- [ ] Create `.env` with `ANTHROPIC_API_KEY=your_key` and `PORT=3000`
+- [ ] Create empty `server.js`
+- [ ] Go back to root: `cd ..`
+- [ ] Create SvelteKit frontend: `npx sv create frontend`
+  - Choose: Skeleton/minimal project, No TypeScript, No additional plugins
+- [ ] `cd frontend && npm install`
+- [ ] Confirm `npm run dev` starts at `http://localhost:5173`
+- [ ] Open whole `testimonial-generator` folder in Cursor
+- [ ] Add PLAN.md and TASKS.md to project root
+
+---
+
+## Phase 2 — Backend (Node/Express)
+
+- [ ] Open `backend/server.js`
+- [ ] Require express, cors, dotenv
+- [ ] Call `dotenv.config()`
+- [ ] Create Express app with `cors()` and `express.json()` middleware
+- [ ] Listen on `process.env.PORT || 3000`
+- [ ] Create `POST /api/generate` endpoint
+- [ ] Read from request body: `productName`, `productDescription`, `customerName`, `customerContext`, `tone`
+- [ ] Return 400 if `productName` or `customerName` are missing
+- [ ] Build prompt string using all inputs (see PLAN.md for prompt template)
+- [ ] Call Anthropic API using native `fetch`:
+  - URL: `https://api.anthropic.com/v1/messages`
+  - Method: POST
+  - Headers: `x-api-key`, `anthropic-version: 2023-06-01`, `content-type: application/json`
+  - Body: model `claude-sonnet-4-20250514`, max_tokens 500, messages array
+- [ ] Extract text from `response.content[0].text`
+- [ ] Return `{ email: "..." }` as JSON
+- [ ] Wrap in try/catch, return 500 on failure
+- [ ] Test with curl:
+```bash
+curl -X POST http://localhost:3000/api/generate \
+  -H "Content-Type: application/json" \
+  -d '{"productName":"PodCheck","productDescription":"Podcast RSS health checker","customerName":"Justin","tone":"friendly"}'
+```
+- [ ] Confirm real email text is returned
+
+---
+
+## Phase 3 — SvelteKit Frontend Form
+
+- [ ] Open `frontend/src/routes/+page.svelte`
+- [ ] Add page header: title "Testimonial Request Generator" + subtitle "For Senja users who want more social proof"
+- [ ] Add form with these fields:
+  - Product name — required text input
+  - Product description — required textarea, 2 rows
+  - Customer name — required text input
+  - Customer context — optional textarea, 3 rows, placeholder "e.g. they used us for X and achieved Y"
+- [ ] Add tone selector — 3 buttons: Friendly / Professional / Short & sweet
+  - Active tone gets highlighted style
+  - Default selected: Friendly
+- [ ] Add Generate button
+- [ ] Bind all inputs to Svelte reactive variables using `bind:value`
+- [ ] Disable Generate button when required fields are empty
+
+---
+
+## Phase 4 — API Call + Output
+
+- [ ] Add `generating` boolean — true while waiting for response
+- [ ] Add `result` string — holds the generated email
+- [ ] Add `error` string — holds error message if something fails
+- [ ] Add `copied` boolean — for copy button feedback
+- [ ] On Generate click:
+  - Set `generating = true`, clear previous `result` and `error`
+  - POST to `${import.meta.env.VITE_API_URL}/api/generate` with JSON body
+  - On success: set `result = data.email`
+  - On error: set `error = message`
+  - Always: set `generating = false`
+- [ ] Show "Generating..." on button while loading
+- [ ] Show result card below form when `result` is set
+- [ ] Show error message in red when `error` is set
+- [ ] Add Copy to clipboard button:
+  - On click: `navigator.clipboard.writeText(result)` then set `copied = true`
+  - After 2 seconds: reset `copied = false`
+  - Button text: "Copy" / "Copied!"
+- [ ] Add Regenerate button that re-triggers the same request
+- [ ] Add small "Powered by Claude" note below result
+
+---
+
+## Phase 5 — Styling
+
+- [ ] Clean minimal design — white/light grey background
+- [ ] Import Inter font from Google Fonts in `app.html`
+- [ ] Form inputs: clean borders, visible focus ring
+- [ ] Tone buttons: pill style, active state is dark background white text
+- [ ] Generate button: prominent, full width or large, dark background
+- [ ] Result card: slightly different background colour, padding, subtle shadow
+- [ ] Copy button: outline style, sits top-right of result card
+- [ ] Mobile responsive — single column on small screens
+- [ ] Add link to senja.com in subtitle
+
+---
+
+## Phase 6 — Environment Config
+
+- [ ] Create `frontend/.env`:
+  ```
+  VITE_API_URL=http://localhost:3000
+  ```
+- [ ] Confirm fetch uses `import.meta.env.VITE_API_URL` not hardcoded localhost
+- [ ] Test full flow locally — form to result
+
+---
+
+## Phase 7 — Deploy Backend to Railway
+
+- [ ] Push `backend/` to GitHub
+- [ ] Go to railway.app — create new project from GitHub repo
+- [ ] Set environment variable: `ANTHROPIC_API_KEY`
+- [ ] Deploy and copy the public URL
+- [ ] Test live endpoint with curl
+
+---
+
+## Phase 8 — Deploy Frontend to Vercel
+
+- [ ] Push `frontend/` to GitHub
+- [ ] Go to vercel.com — import repo
+- [ ] Set environment variable: `VITE_API_URL=https://your-railway-url`
+- [ ] Deploy and get public URL
+- [ ] Test full flow on live site
+- [ ] Check on mobile
+
+---
+
+## Phase 9 — README
+
+- [ ] Create `README.md` in project root
+- [ ] Include:
+  - One-liner: "Testimonial request email generator for Senja users"
+  - Screenshot of the tool with a generated email visible
+  - Stack: SvelteKit · Node.js · Express · Anthropic Claude
+  - Local setup instructions (backend + frontend)
+  - Link to live demo
+  - "Built for Senja users" context line
+
+---
+
+## Phase 10 — LinkedIn Post
+
+- [ ] Screenshot the tool showing a filled form + generated email
+- [ ] Post body (no links — links go in first comment):
+
+```
+I wanted to learn SvelteKit and Node. So I built something useful.
+
+A testimonial request generator for Senja users.
+
+Paste your product info and a customer's name. Get a personalised,
+non-pushy email ready to send. Three tones: friendly, professional,
+or short and sweet.
+
+What surprised me coming from Laravel/PHP:
+⚡ Svelte's reactivity is genuinely magical — no useState, no boilerplate
+🔄 Node/Express feels lighter than I expected
+🤖 Claude handles tone variation really well with a single prompt
+
+Stack: SvelteKit · Node.js · Express · Anthropic/Claude
+
+#SvelteKit #NodeJS #Laravel #BuildInPublic
+```
+
+- [ ] Attach screenshot
+- [ ] Post — add first comment with live URL and GitHub repo
+
+---
+
+## Phase 11 — Senja Outreach
+
+- [ ] Find Olly (Senja CEO) on LinkedIn
+- [ ] Send DM:
+
+```
+Hey Olly,
+
+I applied for the Svelte/Node role a while back and got the "not the
+right fit for the stack" response — fair enough at the time.
+
+I've been ramping up since. Built a small tool this week for Senja
+users — a testimonial request generator in SvelteKit + Node + Claude:
+[link]
+
+Thought it was the most honest way to show I'm serious rather than
+just saying I'm willing to learn.
+
+Still very interested if there's an opening.
+
+Danilo
+```
+
+---
+
+## Done When
+
+- [ ] Tool live at public URL
+- [ ] All 3 tones produce meaningfully different emails
+- [ ] Copy to clipboard works
+- [ ] Looks clean on desktop and mobile
+- [ ] README complete
+- [ ] LinkedIn post live with screenshot
+- [ ] Outreach sent to Olly
