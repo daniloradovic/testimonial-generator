@@ -109,12 +109,12 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 6 — Environment Config
 
-- [ ] Create `frontend/.env`:
+- [x] Create `frontend/.env`:
   ```
   VITE_API_URL=http://localhost:3000
   ```
-- [ ] Confirm fetch uses `import.meta.env.VITE_API_URL` not hardcoded localhost
-- [ ] Test full flow locally — form to result
+- [x] Confirm fetch uses `import.meta.env.VITE_API_URL` not hardcoded localhost
+- [x] Test full flow locally — form to result
 
 ---
 
