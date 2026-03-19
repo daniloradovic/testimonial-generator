@@ -6,48 +6,48 @@ Reference: PLAN_testimonial_request_generator.md
 
 ## Phase 1 — Project Setup
 
-- [ ] Create project folder: `mkdir testimonial-generator && cd testimonial-generator`
-- [ ] Create backend folder: `mkdir backend && cd backend`
-- [ ] Init Node project: `npm init -y`
-- [ ] Install dependencies: `npm install express cors dotenv`
-- [ ] Create `.env` with `ANTHROPIC_API_KEY=your_key` and `PORT=3000`
-- [ ] Create empty `server.js`
-- [ ] Go back to root: `cd ..`
-- [ ] Create SvelteKit frontend: `npx sv create frontend`
+- [x] Create project folder: `mkdir testimonial-generator && cd testimonial-generator`
+- [x] Create backend folder: `mkdir backend && cd backend`
+- [x] Init Node project: `npm init -y`
+- [x] Install dependencies: `npm install express cors dotenv`
+- [x] Create `.env` with `ANTHROPIC_API_KEY=your_key` and `PORT=3000`
+- [x] Create empty `server.js`
+- [x] Go back to root: `cd ..`
+- [x] Create SvelteKit frontend: `npx sv create frontend`
   - Choose: Skeleton/minimal project, No TypeScript, No additional plugins
-- [ ] `cd frontend && npm install`
-- [ ] Confirm `npm run dev` starts at `http://localhost:5173`
-- [ ] Open whole `testimonial-generator` folder in Cursor
-- [ ] Add PLAN.md and TASKS.md to project root
+- [x] `cd frontend && npm install`
+- [x] Confirm `npm run dev` starts at `http://localhost:5173`
+- [x] Open whole `testimonial-generator` folder in Cursor
+- [x] Add PLAN.md and TASKS.md to project root
 
 ---
 
 ## Phase 2 — Backend (Node/Express)
 
-- [ ] Open `backend/server.js`
-- [ ] Require express, cors, dotenv
-- [ ] Call `dotenv.config()`
-- [ ] Create Express app with `cors()` and `express.json()` middleware
-- [ ] Listen on `process.env.PORT || 3000`
-- [ ] Create `POST /api/generate` endpoint
-- [ ] Read from request body: `productName`, `productDescription`, `customerName`, `customerContext`, `tone`
-- [ ] Return 400 if `productName` or `customerName` are missing
-- [ ] Build prompt string using all inputs (see PLAN.md for prompt template)
-- [ ] Call Anthropic API using native `fetch`:
+- [x] Open `backend/server.js`
+- [x] Require express, cors, dotenv
+- [x] Call `dotenv.config()`
+- [x] Create Express app with `cors()` and `express.json()` middleware
+- [x] Listen on `process.env.PORT || 3000`
+- [x] Create `POST /api/generate` endpoint
+- [x] Read from request body: `productName`, `productDescription`, `customerName`, `customerContext`, `tone`
+- [x] Return 400 if `productName` or `customerName` are missing
+- [x] Build prompt string using all inputs (see PLAN.md for prompt template)
+- [x] Call Anthropic API using native `fetch`:
   - URL: `https://api.anthropic.com/v1/messages`
   - Method: POST
   - Headers: `x-api-key`, `anthropic-version: 2023-06-01`, `content-type: application/json`
   - Body: model `claude-sonnet-4-20250514`, max_tokens 500, messages array
-- [ ] Extract text from `response.content[0].text`
-- [ ] Return `{ email: "..." }` as JSON
-- [ ] Wrap in try/catch, return 500 on failure
-- [ ] Test with curl:
+- [x] Extract text from `response.content[0].text`
+- [x] Return `{ email: "..." }` as JSON
+- [x] Wrap in try/catch, return 500 on failure
+- [x] Test with curl:
 ```bash
 curl -X POST http://localhost:3000/api/generate \
   -H "Content-Type: application/json" \
   -d '{"productName":"PodCheck","productDescription":"Podcast RSS health checker","customerName":"Justin","tone":"friendly"}'
 ```
-- [ ] Confirm real email text is returned
+- [x] Confirm real email text is returned
 
 ---
 
