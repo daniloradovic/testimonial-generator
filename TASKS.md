@@ -152,40 +152,10 @@ curl -X POST http://localhost:3000/api/generate \
 
 ---
 
-## Phase 10 — LinkedIn Post
-
-- [ ] Screenshot the tool showing a filled form + generated email
-- [ ] Post body (no links — links go in first comment):
-
-```
-I wanted to learn SvelteKit and Node. So I built something useful.
-
-A testimonial request generator for Senja users.
-
-Paste your product info and a customer's name. Get a personalised,
-non-pushy email ready to send. Three tones: friendly, professional,
-or short and sweet.
-
-What surprised me coming from Laravel/PHP:
-⚡ Svelte's reactivity is genuinely magical — no useState, no boilerplate
-🔄 Node/Express feels lighter than I expected
-🤖 Claude handles tone variation really well with a single prompt
-
-Stack: SvelteKit · Node.js · Express · Anthropic/Claude
-
-#SvelteKit #NodeJS #Laravel #BuildInPublic
-```
-
-- [ ] Attach screenshot
-- [ ] Post — add first comment with live URL and GitHub repo
-
----
-
 ## Done When
 
 - [ ] Tool live at public URL
 - [ ] All 3 tones produce meaningfully different emails
 - [ ] Copy to clipboard works
 - [ ] Looks clean on desktop and mobile
-- [ ] README complete
-- [ ] LinkedIn post live with screenshot
+- [x] README complete
