@@ -95,15 +95,15 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 5 — Styling
 
-- [ ] Clean minimal design — white/light grey background
-- [ ] Import Inter font from Google Fonts in `app.html`
-- [ ] Form inputs: clean borders, visible focus ring
-- [ ] Tone buttons: pill style, active state is dark background white text
-- [ ] Generate button: prominent, full width or large, dark background
-- [ ] Result card: slightly different background colour, padding, subtle shadow
-- [ ] Copy button: outline style, sits top-right of result card
-- [ ] Mobile responsive — single column on small screens
-- [ ] Add link to senja.com in subtitle
+- [x] Clean minimal design — white/light grey background
+- [x] Import Inter font from Google Fonts in `app.html`
+- [x] Form inputs: clean borders, visible focus ring
+- [x] Tone buttons: pill style, active state is dark background white text
+- [x] Generate button: prominent, full width or large, dark background
+- [x] Result card: slightly different background colour, padding, subtle shadow
+- [x] Copy button: outline style, sits top-right of result card
+- [x] Mobile responsive — single column on small screens
+- [x] Add link to senja.com in subtitle
 
 ---
 
