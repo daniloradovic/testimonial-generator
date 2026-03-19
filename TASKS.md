@@ -181,31 +181,6 @@ Stack: SvelteKit · Node.js · Express · Anthropic/Claude
 
 ---
 
-## Phase 11 — Senja Outreach
-
-- [ ] Find Olly (Senja CEO) on LinkedIn
-- [ ] Send DM:
-
-```
-Hey Olly,
-
-I applied for the Svelte/Node role a while back and got the "not the
-right fit for the stack" response — fair enough at the time.
-
-I've been ramping up since. Built a small tool this week for Senja
-users — a testimonial request generator in SvelteKit + Node + Claude:
-[link]
-
-Thought it was the most honest way to show I'm serious rather than
-just saying I'm willing to learn.
-
-Still very interested if there's an opening.
-
-Danilo
-```
-
----
-
 ## Done When
 
 - [ ] Tool live at public URL
@@ -214,4 +189,3 @@ Danilo
 - [ ] Looks clean on desktop and mobile
 - [ ] README complete
 - [ ] LinkedIn post live with screenshot
-- [ ] Outreach sent to Olly

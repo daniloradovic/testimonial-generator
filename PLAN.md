@@ -166,18 +166,6 @@ testimonial-generator/
 
 ---
 
-## Senja Outreach After Launch
-
-Message to Olly:
-
-"Hey Olly, I know I applied before and the stack was a concern.
-I spent the last few days learning SvelteKit and Node — built a small tool
-for Senja users: [link]. It generates personalised testimonial request emails.
-Thought it was the most honest way to show I'm serious about ramping up.
-Still very interested if there's an opening."
-
----
-
 ## Estimated Build Time
 
 | Task | Time |
@@ -204,4 +192,3 @@ Still very interested if there's an opening."
 - [ ] Deployed and accessible via public URL
 - [ ] README is clean
 - [ ] LinkedIn post live
-- [ ] Outreach message sent to Olly at Senja
