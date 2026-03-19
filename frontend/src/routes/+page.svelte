@@ -4,6 +4,10 @@
 	let customerName = $state('');
 	let customerContext = $state('');
 	let tone = $state('friendly');
+	let generating = $state(false);
+	let result = $state('');
+	let error = $state('');
+	let copied = $state(false);
 
 	const tones = [
 		{ value: 'friendly', label: 'Friendly' },
@@ -16,12 +20,50 @@
 		productDescription.trim() !== '' &&
 		customerName.trim() !== ''
 	);
+
+	async function handleGenerate() {
+		generating = true;
+		result = '';
+		error = '';
+
+		try {
+			const res = await fetch(`${import.meta.env.VITE_API_URL}/api/generate`, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					productName,
+					productDescription,
+					customerName,
+					customerContext,
+					tone
+				})
+			});
+
+			const data = await res.json();
+
+			if (!res.ok) {
+				error = data.error || 'Something went wrong';
+			} else {
+				result = data.email;
+			}
+		} catch (err) {
+			error = 'Failed to connect to server';
+		} finally {
+			generating = false;
+		}
+	}
+
+	function copyToClipboard() {
+		navigator.clipboard.writeText(result);
+		copied = true;
+		setTimeout(() => (copied = false), 2000);
+	}
 </script>
 
 <h1>Testimonial Request Generator</h1>
 <p class="subtitle">For <a href="https://senja.io" target="_blank" rel="noopener">Senja</a> users who want more social proof</p>
 
-<form>
+<form onsubmit={(e) => { e.preventDefault(); handleGenerate(); }}>
 	<label>
 		Product name
 		<input type="text" bind:value={productName} required placeholder="e.g. PodCheck" />
@@ -58,7 +100,27 @@
 		</div>
 	</fieldset>
 
-	<button type="submit" class="generate-btn" disabled={!canGenerate}>
-		Generate
+	<button type="submit" class="generate-btn" disabled={!canGenerate || generating}>
+		{generating ? 'Generating...' : 'Generate'}
 	</button>
 </form>
+
+{#if error}
+	<p class="error">{error}</p>
+{/if}
+
+{#if result}
+	<div class="result-card">
+		<div class="result-header">
+			<h2>Your Email</h2>
+			<button class="copy-btn" onclick={copyToClipboard}>
+				{copied ? 'Copied!' : 'Copy'}
+			</button>
+		</div>
+		<pre class="result-text">{result}</pre>
+		<button class="regenerate-btn" onclick={handleGenerate} disabled={generating}>
+			{generating ? 'Generating...' : 'Regenerate'}
+		</button>
+		<p class="powered-by">Powered by Claude</p>
+	</div>
+{/if}

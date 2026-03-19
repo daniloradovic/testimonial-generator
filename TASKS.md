@@ -71,25 +71,25 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 4 — API Call + Output
 
-- [ ] Add `generating` boolean — true while waiting for response
-- [ ] Add `result` string — holds the generated email
-- [ ] Add `error` string — holds error message if something fails
-- [ ] Add `copied` boolean — for copy button feedback
-- [ ] On Generate click:
+- [x] Add `generating` boolean — true while waiting for response
+- [x] Add `result` string — holds the generated email
+- [x] Add `error` string — holds error message if something fails
+- [x] Add `copied` boolean — for copy button feedback
+- [x] On Generate click:
   - Set `generating = true`, clear previous `result` and `error`
   - POST to `${import.meta.env.VITE_API_URL}/api/generate` with JSON body
   - On success: set `result = data.email`
   - On error: set `error = message`
   - Always: set `generating = false`
-- [ ] Show "Generating..." on button while loading
-- [ ] Show result card below form when `result` is set
-- [ ] Show error message in red when `error` is set
-- [ ] Add Copy to clipboard button:
+- [x] Show "Generating..." on button while loading
+- [x] Show result card below form when `result` is set
+- [x] Show error message in red when `error` is set
+- [x] Add Copy to clipboard button:
   - On click: `navigator.clipboard.writeText(result)` then set `copied = true`
   - After 2 seconds: reset `copied = false`
   - Button text: "Copy" / "Copied!"
-- [ ] Add Regenerate button that re-triggers the same request
-- [ ] Add small "Powered by Claude" note below result
+- [x] Add Regenerate button that re-triggers the same request
+- [x] Add small "Powered by Claude" note below result
 
 ---
 
