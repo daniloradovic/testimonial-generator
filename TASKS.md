@@ -53,19 +53,19 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 3 — SvelteKit Frontend Form
 
-- [ ] Open `frontend/src/routes/+page.svelte`
-- [ ] Add page header: title "Testimonial Request Generator" + subtitle "For Senja users who want more social proof"
-- [ ] Add form with these fields:
+- [x] Open `frontend/src/routes/+page.svelte`
+- [x] Add page header: title "Testimonial Request Generator" + subtitle "For Senja users who want more social proof"
+- [x] Add form with these fields:
   - Product name — required text input
   - Product description — required textarea, 2 rows
   - Customer name — required text input
   - Customer context — optional textarea, 3 rows, placeholder "e.g. they used us for X and achieved Y"
-- [ ] Add tone selector — 3 buttons: Friendly / Professional / Short & sweet
+- [x] Add tone selector — 3 buttons: Friendly / Professional / Short & sweet
   - Active tone gets highlighted style
   - Default selected: Friendly
-- [ ] Add Generate button
-- [ ] Bind all inputs to Svelte reactive variables using `bind:value`
-- [ ] Disable Generate button when required fields are empty
+- [x] Add Generate button
+- [x] Bind all inputs to Svelte reactive variables using `bind:value`
+- [x] Disable Generate button when required fields are empty
 
 ---
 
