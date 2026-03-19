@@ -108,7 +108,7 @@ Returns:
 
 ## Live Demo
 
-[testimonial-generator.vercel.app](https://testimonial-generator.vercel.app) — *(update with your Vercel URL)*
+[testimonial-generator-five.vercel.app](https://testimonial-generator-five.vercel.app)
 
 ---
 

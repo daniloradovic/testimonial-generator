@@ -136,6 +136,10 @@
 		padding: 48px 24px 64px;
 	}
 
+	:global(body) {
+		background: #f7f5ff;
+	}
+
 	header {
 		text-align: center;
 		margin-bottom: 40px;
@@ -144,7 +148,7 @@
 	h1 {
 		font-size: 1.75rem;
 		font-weight: 600;
-		color: #111;
+		color: #1a1333;
 		margin-bottom: 8px;
 	}
 
@@ -154,14 +158,14 @@
 	}
 
 	.subtitle a {
-		color: #111;
+		color: #6c47ff;
 		font-weight: 500;
 		text-decoration: underline;
 		text-underline-offset: 2px;
 	}
 
 	.subtitle a:hover {
-		color: #000;
+		color: #5333e0;
 	}
 
 	form {
@@ -176,7 +180,7 @@
 		gap: 6px;
 		font-size: 0.875rem;
 		font-weight: 500;
-		color: #333;
+		color: #1a1333;
 	}
 
 	.optional {
@@ -199,8 +203,8 @@
 
 	input:focus,
 	textarea:focus {
-		border-color: #111;
-		box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12);
+		border-color: #6c47ff;
+		box-shadow: 0 0 0 3px rgba(108, 71, 255, 0.14);
 	}
 
 	input::placeholder,
@@ -220,7 +224,7 @@
 	.tone-selector legend {
 		font-size: 0.875rem;
 		font-weight: 500;
-		color: #333;
+		color: #1a1333;
 		margin-bottom: 8px;
 	}
 
@@ -243,14 +247,14 @@
 	}
 
 	.tone-btn:hover {
-		border-color: #999;
-		color: #111;
+		border-color: #6c47ff;
+		color: #6c47ff;
 	}
 
 	.tone-btn.active {
-		background: #111;
+		background: #6c47ff;
 		color: #fff;
-		border-color: #111;
+		border-color: #6c47ff;
 	}
 
 	.generate-btn {
@@ -261,7 +265,7 @@
 		width: 100%;
 		border: none;
 		border-radius: 10px;
-		background: #111;
+		background: #6c47ff;
 		color: #fff;
 		cursor: pointer;
 		transition: background 0.15s;
@@ -269,7 +273,7 @@
 	}
 
 	.generate-btn:hover:not(:disabled) {
-		background: #333;
+		background: #5333e0;
 	}
 
 	.generate-btn:disabled {
@@ -307,7 +311,7 @@
 	.result-header h2 {
 		font-size: 1rem;
 		font-weight: 600;
-		color: #111;
+		color: #1a1333;
 	}
 
 	.copy-btn {
@@ -324,15 +328,15 @@
 	}
 
 	.copy-btn:hover {
-		border-color: #111;
-		color: #111;
+		border-color: #6c47ff;
+		color: #6c47ff;
 	}
 
 	.result-text {
 		font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 		font-size: 0.9375rem;
 		line-height: 1.7;
-		color: #333;
+		color: #2d2050;
 		white-space: pre-wrap;
 		word-wrap: break-word;
 		margin-bottom: 16px;
@@ -352,8 +356,8 @@
 	}
 
 	.regenerate-btn:hover:not(:disabled) {
-		border-color: #111;
-		color: #111;
+		border-color: #6c47ff;
+		color: #6c47ff;
 	}
 
 	.regenerate-btn:disabled {
