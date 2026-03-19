@@ -141,8 +141,8 @@ curl -X POST http://localhost:3000/api/generate \
 
 ## Phase 9 — README
 
-- [ ] Create `README.md` in project root
-- [ ] Include:
+- [x] Create `README.md` in project root
+- [x] Include:
   - One-liner: "Testimonial request email generator for Senja users"
   - Screenshot of the tool with a generated email visible
   - Stack: SvelteKit · Node.js · Express · Anthropic Claude
