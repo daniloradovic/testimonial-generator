@@ -1,16 +1,32 @@
 # Testimonial Request Generator
 
-Testimonial request email generator for Senja users — paste your product info and a customer's name, get a personalised, non-pushy email ready to send.
+Paste your product info and a customer's name — get a personalised, non-pushy testimonial request email ready to send in seconds.
 
 Built for [Senja](https://senja.io) users who want more social proof but struggle to ask without sounding awkward.
 
----
-
-![Testimonial Request Generator](./screenshot.png)
+🔗 **[Live demo](https://testimonial-generator-five.vercel.app)**
 
 ---
 
-## Stack
+## Screenshots
+
+| Fill the form | Get the email |
+|---|---|
+| ![Form](./screenshot-form.png) | ![Result](./screenshot-result.png) |
+
+---
+
+## ✨ Features
+
+- 📝 Three tones: Friendly, Professional, Short & Sweet
+- 🎯 Optional customer context for personalised emails
+- 📋 Copy to clipboard with one click
+- 🔄 Regenerate for a different result
+- 📱 Clean, mobile-responsive design
+
+---
+
+## 🛠 Stack
 
 - **SvelteKit** — frontend UI
 - **Node.js + Express** — single-endpoint backend
@@ -20,17 +36,7 @@ Built for [Senja](https://senja.io) users who want more social proof but struggl
 
 ---
 
-## Features
-
-- Three tones: Friendly, Professional, Short & Sweet
-- Optional customer context for personalised emails
-- Copy to clipboard with one click
-- Regenerate for a different result
-- Clean, mobile-responsive design
-
----
-
-## Local Setup
+## 🚀 Local Setup
 
 ### Prerequisites
 
@@ -57,7 +63,7 @@ Start the server:
 node server.js
 ```
 
-The backend runs at `http://localhost:3000`.
+Backend runs at `http://localhost:3000`.
 
 ### Frontend
 
@@ -78,11 +84,11 @@ Start the dev server:
 npm run dev
 ```
 
-The app runs at `http://localhost:5173`.
+App runs at `http://localhost:5173`.
 
 ---
 
-## API
+## 📡 API
 
 `POST /api/generate`
 
@@ -103,12 +109,6 @@ Returns:
   "email": "Hey Justin, ..."
 }
 ```
-
----
-
-## Live Demo
-
-[testimonial-generator-five.vercel.app](https://testimonial-generator-five.vercel.app)
 
 ---
 
